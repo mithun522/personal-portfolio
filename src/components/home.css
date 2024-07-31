@@ -1,0 +1,71 @@
+#video-wrapper {
+  position: fixed;
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
+  overflow: hidden;
+}
+
+#video-wrapper >  #player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor:pointer;
+}
+
+@media (min-aspect-ratio: 16/9) {
+   #video-wrapper >  #player { 
+      height: 300%; 
+      top: -100%; 
+   }
+}
+
+@media (max-aspect-ratio: 16/9) {
+   #video-wrapper > #player { 
+      width: 300%; 
+      left: -100%; 
+   }
+}
+  
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes erasing {
+    from {
+      width: 100%;
+    }
+
+    to {
+      width: 0;
+    }
+  }
+
+  .typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid orange;
+    animation: typing 2s steps(30, start), blink-caret .75s step-start infinite;
+  }
+
+  @keyframes blink-caret {
+
+    from,
+    to {
+      border-color: transparent;
+    }
+
+    50% {
+      border-color: orange;
+    }
+  }
