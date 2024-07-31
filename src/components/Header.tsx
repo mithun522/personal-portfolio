@@ -114,8 +114,8 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, refs }) => {
             {navbarItem("Home", refs.homeRef, "homeRef")}
             {navbarItem("About Me", refs.aboutMeRef, "aboutMeRef")}
             {navbarItem("Technologies", refs.technologiesRef, "technologiesRef")}
-            {navbarItem("Contact", refs.contactRef, "contactRef")}
             {navbarItem("Projects", refs.projectsRef, "projectsRef")}
+            {navbarItem("Contact", refs.contactRef, "contactRef")}
           </ul>
         </div>
       </div>

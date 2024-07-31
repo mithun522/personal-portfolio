@@ -12,18 +12,18 @@ const AboutMe: React.FC<AboutMeProps> = ({ aboutRef }) => {
           <FaUser size={40} className="mr-5" />
           <h1 className="text-4xl" style={{ fontWeight: 800 }}>About <span className='text-violet-800'>Me</span></h1>
         </div>
-        <div className='flex justify-between w-full items-center relative'>
+        <div className='flex md:flex-row flex-col justify-between w-full md:items-center items-start relative'>
           <img 
             src='https://t3.ftcdn.net/jpg/02/11/71/06/360_F_211710600_v1ZWFOoNhFRGMowNwoHYTO25rZE2LXI6.jpg' 
             alt="Profile" 
-            className='w-full rounded-lg'
+            className='rounded-lg md:w-full md:h-full h-80 w-60 object-cover'
           />
-          <div className='text-left pl-20'>
+          <div className='text-left md:pl-20 pl-2 md:pt-0 pt-5'>
             <h1 className="text-2xl font-bold">I'm Mithun J.T</h1>
             <p className="text-md font-medium">
               I am a passionate Software Developer based in Coimbatore, India. 
               I am currently working with Nowri Technologies, a Madurai-based startup for the past 14 months,
-              and have gained a lot of hands-on experience by diving into code. I possess
+              and have gained a lots of hands-on experience by diving into code. I possess
               expertise in modern web technologies like React.js, Node.js, and Angular. With a passion for coding and problem-solving, I thrive on tackling 
               complex challenges and am always ready for the next opportunity.
             </p>

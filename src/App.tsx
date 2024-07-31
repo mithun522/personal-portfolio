@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 import Header from './components/Header';
 import Portfolio from './components/Portfolio';
 

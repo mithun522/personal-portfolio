@@ -38,17 +38,17 @@ const Technologies: React.FC = () => {
   return (
     <section id="technologies" className="min-h-[100vh] p-8 bg-gradient-to-r from-violet-800 to-purple-700 text-white">
       <div className="container mx-auto text-center mb-8">
-        <h1 className="flex items-center justify-center text-center text-white md:text-4xl text-2xl font-extrabold my-8">
-          <FaLaptopCode className="mr-2" />
+        <h1 className="flex items-center justify-center text-center text-white md:text-4xl text-lg font-extrabold my-8">
+          <FaLaptopCode className="mr-2" color='white' />
           <span className="text-white">Technologies &</span>
           <span className="text-yellow-300 ml-2">Frameworks</span>
         </h1>
         <div className="bg-gray-900 bg-opacity-50 p-8 rounded-lg shadow-lg inline-block">
-          <div className="grid grid-cols-3 sm:grid-cols-4 xl:grid-cols-5 gap-4 justify-items-center">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
             {technologies.map((tech, index) => (
-              <div key={index} className="flex flex-col items-cente p-5 sm:min-w-[180px]">
+              <div key={index} className="flex flex-col items-cente p-5 min-w-[160px] max-w-[160px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[180px]">
                 <div className="bg-blue-950 bg-opacity-60 p-4 rounded-lg shadow-2xl shadow-blue-950 flex flex-col items-center hover:scale-105 hover:shadow-xl duration-300 ease-in-out">
-                  <img src={tech.logo} alt={tech.name} className="h-24 w-24 object-contain sm:h-16 sm:w-16 md:h-20 md:w-20 mb-4" />
+                  <img src={tech.logo} alt={tech.name} className="h-20 w-20 object-contain sm:h-16 md:h-20 lg:h-24 mb-4" />
                   <p className="text-center font-semibold">{tech.name}</p>
                 </div>
               </div>
@@ -61,3 +61,4 @@ const Technologies: React.FC = () => {
 }
 
 export default Technologies;
+
