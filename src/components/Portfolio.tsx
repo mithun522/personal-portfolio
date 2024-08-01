@@ -1,6 +1,8 @@
 import React, { RefObject } from 'react';
 import { FaCode, FaGithub, FaLinkedin } from 'react-icons/fa';
 import AboutMe from './AboutMe';
+import Contact from './Contact';
+import Footer from './Footer';
 import Home from './Home';
 import Projects from './Projects';
 import Technologies from './Technologies';
@@ -14,6 +16,10 @@ interface PortfolioProps {
     projectsRef: RefObject<HTMLDivElement>;
   };
 }
+
+const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>) => {
+  sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+};
 
 const Portfolio: React.FC<PortfolioProps> = ({ refs }) => {
   return (
@@ -66,9 +72,12 @@ const Portfolio: React.FC<PortfolioProps> = ({ refs }) => {
         <section ref={refs.projectsRef}>
           <Projects />
         </section>
-        {/* <section ref={refs.contactRef}>
+        <section ref={refs.contactRef}>
           <Contact />
-        </section> */}
+        </section>
+        <section>
+          <Footer scrollToSection={scrollToSection} refs={refs} />
+        </section>
       </main>
     </div>
   );
