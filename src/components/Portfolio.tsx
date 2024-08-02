@@ -2,8 +2,10 @@ import React, { RefObject } from 'react';
 import { FaCode, FaGithub, FaLinkedin } from 'react-icons/fa';
 import AboutMe from './AboutMe';
 import Contact from './Contact';
+import Education from './Education';
 import Footer from './Footer';
 import Home from './Home';
+import Milestones from './Milestones';
 import Projects from './Projects';
 import Technologies from './Technologies';
 
@@ -14,6 +16,8 @@ interface PortfolioProps {
     technologiesRef: RefObject<HTMLDivElement>;
     contactRef: RefObject<HTMLDivElement>;
     projectsRef: RefObject<HTMLDivElement>;
+    educationRef: RefObject<HTMLDivElement>;
+    milestonesRef: RefObject<HTMLDivElement>;
   };
 }
 
@@ -65,8 +69,14 @@ const Portfolio: React.FC<PortfolioProps> = ({ refs }) => {
         <section >
           <AboutMe aboutRef={refs.aboutMeRef}/>
         </section>
+        <section>
+          <Education eduRef={refs.educationRef} />
+        </section>
         <section ref={refs.technologiesRef}>
           <Technologies />
+        </section>
+        <section>
+          <Milestones milestoneRef={refs.milestonesRef} />
         </section>
         {/* Uncomment the following sections as needed */}
         <section ref={refs.projectsRef}>

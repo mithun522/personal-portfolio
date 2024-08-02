@@ -1,4 +1,5 @@
 import React from 'react';
+import expressLogo from '../assets/ejs-logo.svg';
 import manojTours1 from '../assets/manoj-tours-1.png';
 import manojTours2 from '../assets/manoj-tours-2.png';
 import manojTours3 from '../assets/manoj-tours-3.png';
@@ -6,6 +7,8 @@ import manojTours4 from '../assets/manoj-tours-4.png';
 import manojTours5 from '../assets/manoj-tours-5.png';
 import manojTours6 from '../assets/manoj-tours-6.png';
 import manojTours7 from '../assets/manoj-tours-7.png';
+import mysqlLogo from '../assets/mysql.svg';
+import nodejsLogo from '../assets/nodejs.svg';
 import quco1 from '../assets/quco-1.png';
 import quco10 from '../assets/quco-10.png';
 import quco11 from '../assets/quco-11.png';
@@ -17,6 +20,8 @@ import quco6 from '../assets/quco-6.png';
 import quco7 from '../assets/quco-7.png';
 import quco8 from '../assets/quco-8.png';
 import quco9 from '../assets/quco-9.png';
+import reactLogo from '../assets/react.svg';
+import tailwindlogo from '../assets/tailwindcss.svg';
 
 import ProjectCard from './ProjectCard';
 
@@ -25,7 +30,13 @@ const projects = [
     title: 'Manoj Tours',
     description: 'A fullstack tours and travels web application to manage data and track customers.',
     type: 'Freelance Project',
-    techStack: ['React', 'Node.js', 'Express.js', 'MySQL', 'Tailwind CSS'],
+    techStack: [
+      <img src={reactLogo} alt='react-logo' key={1} />, 
+      <img src={nodejsLogo} alt='nodejs-logo' key={2} />, 
+      <img src={expressLogo} alt='express-logo' key={3} />, 
+      <img src={mysqlLogo} alt='mysql' key={4} />, 
+      <img src={tailwindlogo} alt='tailwind' key={5} />
+    ],
     images: [manojTours1, manojTours2, manojTours3, manojTours4, manojTours5, manojTours6, manojTours7],
     githubPublicRepo: true,
     githubUrl: 'https://github.com/mithun522/manoj_tours',
@@ -33,7 +44,7 @@ const projects = [
   {
     title: 'Quco',
     description: 'An frontend-application inventory-based application for an ecommerce fashion selling business.',
-    techStack: ['React', 'Tailwind CSS'],
+    techStack: [<img src={reactLogo} alt='react-logo' key={1} />, <img src={tailwindlogo} alt='tailwind' key={2} />],
     type: 'Freelance Project',
     images: [quco1, quco2, quco3, quco4, quco5, quco6, quco7, quco8, quco9, quco10, quco11],
     githubPublicRepo: true,
@@ -43,7 +54,7 @@ const projects = [
     title: 'Expense Tracker',
     description: 'An expense tracker built using react-native and application to keep track of your expenses.',
     type: 'Personal Project',
-    techStack: ['React', 'Tailwind CSS'],
+    techStack: [<img src={reactLogo} alt='react-logo' key={1} />, <img src={tailwindlogo} alt='tailwind' key={2} />],
     images: [],
     githubPublicRepo: true,
     githubUrl: 'https://github.com/mithun522/expense-tracker',
@@ -52,7 +63,7 @@ const projects = [
     title: 'Personal Portfolio',
     description: 'A personal portfolio built using React and Tailwind CSS.',
     type: 'Personal Project',
-    techStack: ['React', 'Tailwind CSS'],
+    techStack: [<img src={reactLogo} alt='react-logo' key={1} />, <img src={tailwindlogo} alt='tailwind' key={2} />],
     images: [],
     githubPublicRepo: true,
     githubUrl: 'https://github.com/mithun522/personal-portfolio',
@@ -73,3 +84,4 @@ const Projects: React.FC = () => {
 }
 
 export default Projects;
+

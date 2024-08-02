@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import logo from '../assets/logo.png';
 
 interface SectionRefs {
   homeRef: React.RefObject<HTMLDivElement>;
@@ -6,6 +7,8 @@ interface SectionRefs {
   technologiesRef: React.RefObject<HTMLDivElement>;
   contactRef: React.RefObject<HTMLDivElement>;
   projectsRef: React.RefObject<HTMLDivElement>;
+  educationRef: React.RefObject<HTMLDivElement>;
+  milestonesRef: React.RefObject<HTMLDivElement>;
 }
 
 interface HeaderProps {
@@ -76,13 +79,18 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, refs }) => {
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Mithun J T
+          <div className="rounded-full shadow-custom-gray h-10 w-10 flex items-center justify-center">
+            <img
+              src={logo}
+              className="h-6"
+              alt="Logo"
+            />
+          </div>
+          <span 
+            className="self-center text-2xl text-black whitespace-nowrap dark:text-white"
+            style={{ fontFamily: '"Playwrite BE VLG", cursive', fontOpticalSizing: 'auto', fontWeight: '900'}}
+          >
+            Mithun
           </span>
         </a>
         <button
@@ -113,7 +121,9 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, refs }) => {
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             {navbarItem("Home", refs.homeRef, "homeRef")}
             {navbarItem("About Me", refs.aboutMeRef, "aboutMeRef")}
+            {navbarItem("Education", refs.educationRef, "educationRef")}
             {navbarItem("Technologies", refs.technologiesRef, "technologiesRef")}
+            {navbarItem("Milestones", refs.milestonesRef, "milestonesRef")}
             {navbarItem("Projects", refs.projectsRef, "projectsRef")}
             {navbarItem("Contact", refs.contactRef, "contactRef")}
           </ul>

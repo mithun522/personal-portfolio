@@ -11,6 +11,8 @@ const App: React.FC = () => {
   const technologiesRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
+  const educationRef = useRef<HTMLDivElement>(null);
+  const milestonesRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>) => {
     if (sectionRef.current) {
@@ -36,12 +38,14 @@ const App: React.FC = () => {
           technologiesRef,
           contactRef,
           projectsRef,
+          educationRef,
+          milestonesRef
         }}
       />
       <Routes>
         <Route
           path="/"
-          element={<Portfolio refs={{ homeRef, aboutMeRef, technologiesRef, contactRef, projectsRef }} />}
+          element={<Portfolio refs={{ homeRef, aboutMeRef, technologiesRef, contactRef, projectsRef, educationRef, milestonesRef }} />}
         />
       </Routes>
     </Router>

@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 interface ProjectCardProps {
   title: string;
   description: string;
-  techStack: string[];
+  techStack: React.ReactNode[];
   type: string;
   images: string[];
   githubUrl?: string;
@@ -18,7 +18,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   description,
   techStack,
-  type,
   images,
   githubUrl,
   githubPublicRepo,
@@ -61,9 +60,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       )}
       <h2 className="text-2xl font-bold">{title}</h2>
       <p className="mt-2">{description}</p>
-      <div className="mt-4 grid grid-cols-3 md:grid-cols-5 gap-2">
+      <div className="mt-4 flex gap-10">
         {techStack.map((tech, index) => (
-          <span key={index} className="bg-blue-700 font-medium text-xs md:text-md py-1 rounded text-center whitespace-nowrap">
+          <span key={index} className="h-8 w-12 mb-5 inline font-medium text-xs md:text-md py-1 rounded text-center whitespace-nowrap">
             {tech}
           </span>
         ))}

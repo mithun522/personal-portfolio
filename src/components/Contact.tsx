@@ -38,7 +38,7 @@ const Contact: React.FC = () => {
         <div className="flex flex-col w-full md:w-1/2 p-4">
           <form onSubmit={handleSubmit}>
             <div className="relative mb-4">
-              <FaUser className="absolute top-3 left-4 text-gray-500" size={20} aria-label="User Icon" />
+              <FaUser className="absolute top-4 left-4 text-gray-500" size={20} aria-label="User Icon" />
               <input
                 type="text"
                 name="name"
@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
               />
             </div>
             <div className="relative mb-4">
-              <FaEnvelope className="absolute top-3 left-4 text-gray-500" size={20} aria-label="Envelope Icon" />
+              <FaEnvelope className="absolute top-4 left-4 text-gray-500" size={20} aria-label="Envelope Icon" />
               <input
                 type="email"
                 name="email"
@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
               />
             </div>
             <div className="relative mb-4">
-              <FaPhoneAlt className="absolute top-3 left-4 text-gray-500" size={20} aria-label="Phone Icon" />
+              <FaPhoneAlt className="absolute top-4 left-4 text-gray-500" size={20} aria-label="Phone Icon" />
               <input
                 type="tel"
                 name="phone"
@@ -73,7 +73,7 @@ const Contact: React.FC = () => {
               />
             </div>
             <div className="relative mb-4">
-              <AiFillMessage className="absolute top-3 left-4 text-gray-500" size={20} aria-label="Message Icon" />
+              <AiFillMessage className="absolute top-4 left-4 text-gray-500" size={20} aria-label="Message Icon" />
               <textarea
                 name="message"
                 placeholder="Message"

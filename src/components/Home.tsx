@@ -76,13 +76,13 @@ const Home: React.FC = () => {
                 <FaArrowCircleDown className='absolute right-5 top-3' />
               </div>
               <div className='flex space-x-5 mt-5'>
-                <a href="https://linkedin.com/in/mithun-jt-full-stack-developer" target="_blank" rel="noopener noreferrer" className='h-12 w-12 rounded-full bg-black flex justify-center items-center'>
+                <a href="https://linkedin.com/in/mithun-jt-full-stack-developer" target="_blank" rel="noopener noreferrer" className='h-12 w-12 rounded-full bg-black flex justify-center items-center hover:scale-105 duration-300 ease-in-out'>
                   <FaLinkedin color='#07F7EC' size={30} />
                 </a>
-                <a href="https://github.com/mithun522" target="_blank" rel="noopener noreferrer" className='h-12 w-12 rounded-full bg-black flex justify-center items-center'>
+                <a href="https://github.com/mithun522" target="_blank" rel="noopener noreferrer" className='h-12 w-12 rounded-full bg-black flex justify-center items-center hover:scale-105 duration-300 ease-in-out'>
                   <FaGithub color='#07F7EC' size={30} />
                 </a>
-                <a href="https://leetcode.com/u/Mithun_04/" target="_blank" rel="noopener noreferrer" className='h-12 w-12 rounded-full bg-black flex justify-center items-center'>
+                <a href="https://leetcode.com/u/Mithun_04/" target="_blank" rel="noopener noreferrer" className='h-12 w-12 rounded-full bg-black flex justify-center items-center hover:scale-105 duration-300 ease-in-out'>
                   <FaCode color='#07F7EC' size={30} />
                 </a>
               </div>
