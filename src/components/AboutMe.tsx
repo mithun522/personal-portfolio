@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaUser } from "react-icons/fa";
+import Mithun_2 from '../assets/Mithun_2.jpeg';
 
 interface AboutMeProps {
   aboutRef: React.RefObject<HTMLDivElement>;
@@ -14,9 +15,9 @@ const AboutMe: React.FC<AboutMeProps> = ({ aboutRef }) => {
         </div>
         <div className='flex md:flex-row flex-col justify-between w-full md:items-center items-start relative'>
           <img 
-            src='https://t3.ftcdn.net/jpg/02/11/71/06/360_F_211710600_v1ZWFOoNhFRGMowNwoHYTO25rZE2LXI6.jpg' 
+            src={Mithun_2} 
             alt="Profile" 
-            className='rounded-lg md:w-full md:h-full h-80 w-60 object-cover'
+            className='rounded-lg h-100 w-80 object-cover'
           />
           <div className='text-left md:pl-20 pl-2 md:pt-0 pt-5'>
             <h1 className="text-2xl font-bold">I'm Mithun J.T</h1>

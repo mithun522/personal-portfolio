@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaArrowCircleDown, FaCode, FaGithub, FaLinkedin } from 'react-icons/fa';
 import bgVideo from '../assets/portfolio-bg.mp4';
+import Mithun from '../assets/Mithun.jpeg';
 
 const Typewriter: React.FC = () => {
   const words = ["Web Dev", "React.js", "Node.js", "Angular", "React Native", "Java", "Mobile App Dev", "Scaffolding Tools"];
@@ -89,7 +90,7 @@ const Home: React.FC = () => {
           </div>
         </div>
         <div className="flex justify-center items-center md:w-1/2 mt-28">
-          <img src='https://www.shutterstock.com/image-photo/closeup-portrait-young-smiling-hispanic-260nw-2327799157.jpg' alt="Mithun J.T." className="object-cover rounded-full shadow-lg md:w-[400px] md:h-[400px] w-[250px] h-[250px]" />
+          <img src={Mithun} alt="Mithun J.T." className="object-cover rounded-full shadow-lg md:w-[400px] md:h-[400px] w-[250px] h-[250px]" />
         </div>
       </div>
     </div>

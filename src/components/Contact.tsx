@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AiFillMessage } from "react-icons/ai";
 import { FaEnvelope, FaPaperPlane, FaPhoneAlt, FaUser } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,17 +11,45 @@ const Contact: React.FC = () => {
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const [isSending, setIsSending] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission, e.g., send the data to an API or email service
-    console.log("Form submitted:", formData);
+    setIsSending(true);
+
+    const { name, email, phone, message } = formData;
+
+    try {
+      const result = await emailjs.send(
+        "service_yuuwzoc", // Your Service ID
+        "template_8jl67g9", // Your Template ID
+        {
+          from_name: name,
+          email,
+          phone,
+          message,
+        },
+        "qrz5tT1BYXAtxD6uT" // Your Public API Key
+      );
+
+      setSuccessMessage("Message sent successfully!");
+      setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
+    } catch (error) {
+      setErrorMessage("Failed to send message. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -87,10 +116,17 @@ const Contact: React.FC = () => {
               type="submit"
               className="w-full bg-purple-700 text-white py-3 rounded-md flex justify-center items-center font-semibold hover:bg-purple-800 transition duration-300"
               aria-label="Send Message"
+              disabled={isSending}
             >
-              Send Message
+              {isSending ? "Sending..." : "Send Message"}
               <FaPaperPlane className="ml-2" size={20} />
             </button>
+            {successMessage && (
+              <p className="mt-4 text-green-600 text-center">{successMessage}</p>
+            )}
+            {errorMessage && (
+              <p className="mt-4 text-red-600 text-center">{errorMessage}</p>
+            )}
           </form>
         </div>
       </div>
