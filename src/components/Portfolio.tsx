@@ -1,18 +1,20 @@
-import React, { RefObject } from 'react';
-import { FaCode, FaGithub, FaLinkedin } from 'react-icons/fa';
-import AboutMe from './AboutMe';
-import Contact from './Contact';
-import Education from './Education';
-import Footer from './Footer';
-import Home from './Home';
-import Milestones from './Milestones';
-import Projects from './Projects';
-import Technologies from './Technologies';
+import React, { RefObject } from "react";
+import { FaCode, FaGithub, FaLinkedin } from "react-icons/fa";
+import AboutMe from "./AboutMe";
+import Contact from "./Contact";
+import Education from "./Education";
+import Footer from "./Footer";
+import Home from "./Home";
+import Milestones from "./Milestones";
+import Projects from "./Projects";
+import Technologies from "./Technologies";
+import WorkExperience from "./WorkExperience";
 
 interface PortfolioProps {
   refs: {
     homeRef: RefObject<HTMLDivElement>;
     aboutMeRef: RefObject<HTMLDivElement>;
+    workExperienceRef: RefObject<HTMLDivElement>;
     technologiesRef: RefObject<HTMLDivElement>;
     contactRef: RefObject<HTMLDivElement>;
     projectsRef: RefObject<HTMLDivElement>;
@@ -22,7 +24,7 @@ interface PortfolioProps {
 }
 
 const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>) => {
-  sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+  sectionRef.current?.scrollIntoView({ behavior: "smooth" });
 };
 
 const Portfolio: React.FC<PortfolioProps> = ({ refs }) => {
@@ -66,8 +68,11 @@ const Portfolio: React.FC<PortfolioProps> = ({ refs }) => {
         <section ref={refs.homeRef}>
           <Home />
         </section>
-        <section >
-          <AboutMe aboutRef={refs.aboutMeRef}/>
+        <section>
+          <AboutMe aboutRef={refs.aboutMeRef} />
+        </section>
+        <section>
+          <WorkExperience workExperienceRef={refs.workExperienceRef} />
         </section>
         <section>
           <Education eduRef={refs.educationRef} />

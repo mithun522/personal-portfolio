@@ -53,7 +53,10 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="flex flex-col items-center py-10 bg-blue-50">
+    <section
+      id="contact"
+      className="flex flex-col items-center py-10 bg-blue-50"
+    >
       <h1 className="flex items-center text-4xl font-bold mb-5 text-center">
         <FaUser className="mr-2" />
         Get in <span className="text-purple-600 ml-1">Touch</span>
@@ -67,7 +70,11 @@ const Contact: React.FC = () => {
         <div className="flex flex-col w-full md:w-1/2 p-4">
           <form onSubmit={handleSubmit}>
             <div className="relative mb-4">
-              <FaUser className="absolute top-4 left-4 text-gray-500" size={20} aria-label="User Icon" />
+              <FaUser
+                className="absolute top-4 left-4 text-gray-500"
+                size={20}
+                aria-label="User Icon"
+              />
               <input
                 type="text"
                 name="name"
@@ -79,7 +86,11 @@ const Contact: React.FC = () => {
               />
             </div>
             <div className="relative mb-4">
-              <FaEnvelope className="absolute top-4 left-4 text-gray-500" size={20} aria-label="Envelope Icon" />
+              <FaEnvelope
+                className="absolute top-4 left-4 text-gray-500"
+                size={20}
+                aria-label="Envelope Icon"
+              />
               <input
                 type="email"
                 name="email"
@@ -91,7 +102,11 @@ const Contact: React.FC = () => {
               />
             </div>
             <div className="relative mb-4">
-              <FaPhoneAlt className="absolute top-4 left-4 text-gray-500" size={20} aria-label="Phone Icon" />
+              <FaPhoneAlt
+                className="absolute top-4 left-4 text-gray-500"
+                size={20}
+                aria-label="Phone Icon"
+              />
               <input
                 type="tel"
                 name="phone"
@@ -102,7 +117,11 @@ const Contact: React.FC = () => {
               />
             </div>
             <div className="relative mb-4">
-              <AiFillMessage className="absolute top-4 left-4 text-gray-500" size={20} aria-label="Message Icon" />
+              <AiFillMessage
+                className="absolute top-4 left-4 text-gray-500"
+                size={20}
+                aria-label="Message Icon"
+              />
               <textarea
                 name="message"
                 placeholder="Message"
@@ -122,7 +141,9 @@ const Contact: React.FC = () => {
               <FaPaperPlane className="ml-2" size={20} />
             </button>
             {successMessage && (
-              <p className="mt-4 text-green-600 text-center">{successMessage}</p>
+              <p className="mt-4 text-green-600 text-center">
+                {successMessage}
+              </p>
             )}
             {errorMessage && (
               <p className="mt-4 text-red-600 text-center">{errorMessage}</p>
