@@ -20,6 +20,15 @@ import quco6 from "../assets/quco-6.png";
 import quco7 from "../assets/quco-7.png";
 import quco8 from "../assets/quco-8.png";
 import quco9 from "../assets/quco-9.png";
+import devdiary1 from "../assets/dev-diary-1.png";
+import devdiary2 from "../assets/dev-diary-2.png";
+import devdiary3 from "../assets/dev-diary-3.png";
+import devdiary4 from "../assets/dev-diary-4.png";
+import devdiary6 from "../assets/dev-diary-6.png";
+import devdiary7 from "../assets/dev-diary-7.png";
+import devdiary8 from "../assets/dev-diary-8.png";
+import devdiary9 from "../assets/dev-diary-9.png";
+import devdiary10 from "../assets/dev-diary-10.png";
 import reactLogo from "../assets/react.svg";
 import tailwindlogo from "../assets/tailwindcss.svg";
 import typecriptLogo from "../assets/typescript.svg";
@@ -89,7 +98,17 @@ const projects = [
       <img className="mt-4" src={expressLogo} alt="express-logo" key={5} />,
       <img src={mysqlLogo} alt="mysql" key={6} />,
     ],
-    images: [],
+    images: [
+      devdiary1,
+      devdiary2,
+      devdiary3,
+      devdiary4,
+      devdiary6,
+      devdiary7,
+      devdiary8,
+      devdiary9,
+      devdiary10,
+    ],
     githubPublicRepo: true,
     githubUrl: "https://github.com/mithun522/expense-tracker",
   },
