@@ -62,7 +62,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToSection, refs }) => {
             <FaMapMarkerAlt className="mr-2" /> Coimbatore, India - 641008
           </p>
           <div className="flex space-x-4">
-            <a href="https://linkedin.com/in/mithun-jt-full-stack-developer" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
+            <a href="https://www.linkedin.com/in/mithun-jt" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">
               <FaLinkedin size={24} />
             </a>
             <a href="https://github.com/mithun522" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-400">

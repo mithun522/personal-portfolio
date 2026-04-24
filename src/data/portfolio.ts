@@ -4,7 +4,7 @@ export const profile = {
   title: "Full Stack Developer",
   location: "Chennai, India",
   email: "mithunmathi03@gmail.com",
-  linkedin: "https://linkedin.com/in/mithun-jt-full-stack-developer",
+  linkedin: "https://www.linkedin.com/in/mithun-jt",
   github: "https://github.com/mithun522",
   leetcode: "https://leetcode.com/u/Mithun_04/",
   intro:
