@@ -1,64 +1,93 @@
-import React from 'react';
-import { FaLaptopCode } from 'react-icons/fa';
-import angularLogo from '../assets/angular.svg';
-import bootstrapLogo from '../assets/bootstrap.svg';
-import css3Logo from '../assets/css3.svg';
-import cypressLogo from '../assets/cypress.png';
-import githubLogo from '../assets/github.svg';
-import htmlLogo from '../assets/html-5.svg';
-import javaLogo from '../assets/java.svg';
-import javascriptLogo from '../assets/javascript.svg';
-import jestLogo from '../assets/jest.svg';
-import mysqlLogo from '../assets/mysql.svg';
-import nodejsLogo from '../assets/nodejs.svg';
-import reactLogo from '../assets/react.svg';
-import springLogo from '../assets/spring.svg';
-import tailwindLogo from '../assets/tailwindcss.svg';
-import typeScriptLogo from '../assets/typescript.svg';
+import React from "react";
+import { FaLaptopCode } from "react-icons/fa";
+import angularLogo from "../assets/angular.svg";
+import bootstrapLogo from "../assets/bootstrap.svg";
+import css3Logo from "../assets/css3.svg";
+import cypressLogo from "../assets/cypress.png";
+import githubLogo from "../assets/github.svg";
+import htmlLogo from "../assets/html-5.svg";
+import javaLogo from "../assets/java.svg";
+import javascriptLogo from "../assets/javascript.svg";
+import jestLogo from "../assets/jest.svg";
+import mysqlLogo from "../assets/mysql.svg";
+import nodejsLogo from "../assets/nodejs.svg";
+import reactLogo from "../assets/react.svg";
+import springLogo from "../assets/spring.svg";
+import tailwindLogo from "../assets/tailwindcss.svg";
+import typeScriptLogo from "../assets/typescript.svg";
+import { technologyGroups } from "../data/portfolio";
+import awsLogo from "../assets/aws-logo.png";
+import kafkaLogo from "../assets/kafka-logo.svg";
 
-const technologies = [
-  { name: 'Java', logo: javaLogo },
-  { name: 'HTML', logo: htmlLogo },
-  { name: 'CSS', logo: css3Logo },
-  { name: 'JavaScript', logo: javascriptLogo },
-  { name: 'Cypress', logo: cypressLogo },
-  { name: 'Jest', logo: jestLogo },
-  { name: 'React', logo: reactLogo },
-  { name: 'Node.js', logo: nodejsLogo },
-  { name: 'MySQL', logo: mysqlLogo },
-  { name: 'Bootstrap', logo: bootstrapLogo },
-  { name: 'Tailwind', logo: tailwindLogo },
-  { name: 'TypeScript', logo: typeScriptLogo },
-  { name: 'Angular', logo: angularLogo },
-  { name: 'Spring', logo: springLogo },
-  { name: 'GitHub', logo: githubLogo },
-];
+const technologies = {
+  React: reactLogo,
+  Angular: angularLogo,
+  TypeScript: typeScriptLogo,
+  JavaScript: javascriptLogo,
+  HTML: htmlLogo,
+  CSS: css3Logo,
+  "Node.js": nodejsLogo,
+  MySQL: mysqlLogo,
+  Java: javaLogo,
+  Spring: springLogo,
+  Jest: jestLogo,
+  Cypress: cypressLogo,
+  "Tailwind CSS": tailwindLogo,
+  Bootstrap: bootstrapLogo,
+  GitHub: githubLogo,
+  "AWS": awsLogo,
+  "Kafka": kafkaLogo,
+};
 
 const Technologies: React.FC = () => {
   return (
-    <section id="technologies" className="min-h-[100vh] p-8 bg-gradient-to-r from-violet-800 to-purple-700 text-white">
-      <div className="container mx-auto text-center mb-8">
-        <h1 className="flex items-center justify-center text-center text-white md:text-4xl text-lg font-extrabold my-8">
-          <FaLaptopCode className="mr-2" color='white' />
-          <span className="text-white">Technologies &</span>
-          <span className="text-yellow-300 ml-2">Frameworks</span>
-        </h1>
-        <div className="bg-gray-900 bg-opacity-50 p-8 rounded-lg shadow-lg inline-block">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-items-center">
-            {technologies.map((tech, index) => (
-              <div key={index} className="flex flex-col items-cente p-5 min-w-[160px] max-w-[160px] sm:min-w-[140px] md:min-w-[160px] lg:min-w-[180px]">
-                <div className="bg-blue-950 bg-opacity-60 p-4 rounded-lg shadow-2xl shadow-blue-950 flex flex-col items-center hover:scale-105 hover:shadow-xl duration-300 ease-in-out">
-                  <img src={tech.logo} alt={tech.name} className="h-20 w-20 object-contain sm:h-16 md:h-20 lg:h-24 mb-4" />
-                  <p className="text-center font-semibold">{tech.name}</p>
-                </div>
-              </div>
-            ))}
+    <section
+      id="technologies"
+      className="px-6 py-16 text-slate-950 md:px-10 md:py-24"
+    >
+      <div className="mx-auto max-w-6xl rounded-[2rem] bg-[linear-gradient(145deg,#131a2e_0%,#192746_55%,#202d4f_100%)] p-6 text-white shadow-[0_30px_80px_rgba(15,23,42,0.18)] md:p-10">
+        <div className="mb-10 flex items-center gap-3">
+          <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-semibold text-white/90">
+            <FaLaptopCode className="text-[var(--accent)]" />
+            Technologies
           </div>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          {technologyGroups.map((group) => (
+            <div
+              key={group.title}
+              className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6 backdrop-blur"
+            >
+              <h3 className="text-2xl font-semibold text-white">
+                {group.title}
+              </h3>
+              <div className="mt-5 grid grid-cols-2 gap-4">
+                {group.items.map((tech) => (
+                  <div
+                    key={tech}
+                    className="flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-950/30 px-4 py-4"
+                  >
+                    <img
+                      src={technologies[tech as keyof typeof technologies]}
+                      alt={tech}
+                      className="h-10 w-10 object-contain"
+                    />
+                    <div>
+                      <p className="text-sm font-semibold text-white">{tech}</p>
+                      <p className="text-xs uppercase tracking-[0.18em] text-white/45">
+                        Production use
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Technologies;
-

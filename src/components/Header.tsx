@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
+import { profile } from "../data/portfolio";
 
 interface SectionRefs {
   homeRef: React.RefObject<HTMLDivElement>;
@@ -67,16 +68,14 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, refs }) => {
           onClick={() => scrollToSection(ref)}
           className={`block py-1 px-1 relative ${
             isActive
-              ? "font-semibold text-blue-600 dark:text-white"
-              : "text-gray-700 dark:text-gray-400 hover:text-blue-700 hover:border-b-2 hover:border-blue-700 dark:hover:text-blue-500"
+              ? "font-semibold text-[var(--accent-strong)]"
+              : "text-slate-600 hover:text-slate-950"
           } cursor-pointer`}
         >
           {navLink}
           <div
             className={`absolute bottom-0 left-0 right-0 border-b-2 ${
-              isActive
-                ? "border-blue-600 dark:border-blue-500"
-                : "border-transparent"
+              isActive ? "border-[var(--accent-strong)]" : "border-transparent"
             }`}
           />
         </button>
@@ -85,27 +84,25 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, refs }) => {
   };
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 fixed top-0 w-full z-10 border-2 shadow-lg">
-      <div className="w-screen md:max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="fixed top-0 z-20 w-full border-b border-white/60 bg-[rgba(247,242,235,0.8)] backdrop-blur-xl">
+      <div className="mx-auto flex w-screen flex-wrap items-center justify-between p-4 md:max-w-screen-xl">
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <div className="rounded-full shadow-custom-gray h-10 w-10 flex items-center justify-center">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-soft)] bg-white shadow-[0_14px_34px_rgba(15,23,42,0.08)]">
             <img src={logo} className="h-6" alt="Logo" />
           </div>
           <span
-            className="self-center text-2xl text-black whitespace-nowrap dark:text-white"
+            className="self-center whitespace-nowrap font-serif text-2xl text-slate-950"
             style={{
-              fontFamily: '"Playwrite BE VLG", cursive',
-              fontOpticalSizing: "auto",
-              fontWeight: "900",
+              fontWeight: "700",
             }}
           >
-            Mithun
+            {profile.shortName}
           </span>
         </a>
         <button
           onClick={openMenu}
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[var(--border-soft)] bg-white p-2 text-sm text-slate-600 md:hidden"
           aria-controls="navbar-default"
           aria-expanded="false"
         >
@@ -127,10 +124,10 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, refs }) => {
           </svg>
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="mt-4 flex flex-col rounded-[1.5rem] border border-[var(--border-soft)] bg-white/90 p-4 font-medium shadow-[0_18px_45px_rgba(15,23,42,0.08)] md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-transparent md:p-0 md:shadow-none">
             {navbarItem("Home", refs.homeRef, "homeRef")}
             {navbarItem("About Me", refs.aboutMeRef, "aboutMeRef")}
-            {navbarItem("Experience", refs.aboutMeRef, "workExperienceRef")}
+            {navbarItem("Experience", refs.workExperienceRef, "workExperienceRef")}
             {navbarItem("Education", refs.educationRef, "educationRef")}
             {navbarItem(
               "Technologies",

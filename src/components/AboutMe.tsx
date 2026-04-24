@@ -1,57 +1,78 @@
 import React from "react";
-import { FaUser } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaUser } from "react-icons/fa";
 import Mithun_2 from "../assets/Mithun_2.jpeg";
+import { focusAreas, profile } from "../data/portfolio";
 
 interface AboutMeProps {
   aboutRef: React.RefObject<HTMLDivElement>;
 }
+
 const AboutMe: React.FC<AboutMeProps> = ({ aboutRef }) => {
   return (
-    <section
-      id="about"
-      className="p-8 bg-white flex justify-center items-center"
-    >
-      <div className="flex flex-col items-center" ref={aboutRef}>
-        <div className="mb-4 flex items-center">
-          <FaUser size={40} className="mr-5" />
-          <h1 className="text-4xl" style={{ fontWeight: 800 }}>
-            About <span className="text-violet-800">Me</span>
-          </h1>
-        </div>
-        <div className="flex md:flex-row flex-col justify-between w-full md:items-center items-start relative">
+    <section id="about" className="px-6 py-16 md:px-10 md:py-24">
+      <div
+        ref={aboutRef}
+        className="mx-auto grid max-w-6xl gap-10 rounded-[2rem] border border-white/70 bg-white/75 p-6 shadow-[0_28px_70px_rgba(15,23,42,0.08)] backdrop-blur md:grid-cols-[0.9fr_1.1fr] md:p-10"
+      >
+        <div className="overflow-hidden rounded-[1.75rem] bg-[linear-gradient(145deg,#fff4e8_0%,#ebf0ff_100%)] p-4">
           <img
             src={Mithun_2}
-            alt="Profile"
-            className="rounded-lg h-100 w-80 object-cover"
+            alt="Mithun J.T."
+            className="h-full min-h-[24rem] w-full rounded-[1.35rem] object-cover"
           />
-          <div className="text-left md:pl-20 pl-2 md:pt-0 pt-5">
-            <h1 className="text-2xl font-bold">I'm Mithun J.T</h1>
-            <p className="text-md font-medium">
-              I am a passionate Software Developer based in Chennai, India, with
-              extensive hands-on experience gained by diving deep into code. I
-              possess strong expertise in modern web technologies and
-              programming languages including HTML, CSS, JavaScript, TypeScript,
-              React.js, Node.js, Express.js, MySQL, Jest, Cypress, and
-              TailwindCSS. With a passion for coding and problem-solving, I
-              thrive on tackling complex challenges and am always eager to
-              embrace the next opportunity.
-            </p>
-            <p className="text-gray-400 text-sm mt-4">
-              Let's collaborate and create something amazing together!
-            </p>
-            <span className="text-sm font-semibold">
-              Email:{" "}
-              <a
-                href="mailto:mithunmathi03@gmail.com"
-                className="text-[#005ce6] underline cursor-pointer"
+        </div>
+
+        <div>
+          <div className="mb-5 inline-flex items-center gap-3 rounded-full border border-[var(--border-soft)] bg-[var(--surface-soft)] px-4 py-2 text-sm font-semibold text-slate-700">
+            <FaUser className="text-[var(--accent-strong)]" />
+            About Me
+          </div>
+
+          <h2 className="font-serif text-4xl text-slate-950 md:text-5xl">
+            A developer who likes thoughtful interfaces, reliable systems, and
+            products that feel easy to use.
+          </h2>
+          <p className="mt-6 text-base leading-8 text-slate-600">
+            I am a software developer based in Chennai, India, with hands-on
+            experience building product features across modern web stacks. My
+            strongest work sits at the intersection of frontend craftsmanship,
+            product workflows, and practical full stack delivery.
+          </p>
+          <p className="mt-4 text-base leading-8 text-slate-600">
+            Recently, I&apos;ve worked in healthcare and enterprise workflow
+            products, using React, Angular, Node.js, TypeScript, MySQL, Jest,
+            and Cypress to ship user-facing experiences that are both polished
+            and maintainable.
+          </p>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {focusAreas.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-3xl border border-[var(--border-soft)] bg-white px-5 py-5 shadow-[0_18px_45px_rgba(15,23,42,0.06)]"
               >
-                mithunmathi03@gmail.com
-              </a>
-            </span>{" "}
-            <br />
-            <span className="text-sm font-semibold">
-              Place: <span>Chennai - 600-042</span>
-            </span>
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
+                  {item.label}
+                </p>
+                <p className="mt-3 text-sm font-semibold leading-6 text-slate-800">
+                  {item.value}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col gap-4 text-sm font-semibold text-slate-700 md:flex-row md:flex-wrap">
+            <a
+              href={`mailto:${profile.email}`}
+              className="inline-flex items-center gap-3 rounded-full border border-[var(--border-soft)] bg-white px-5 py-3 transition duration-300 hover:-translate-y-0.5"
+            >
+              <FaEnvelope className="text-[var(--accent-strong)]" />
+              {profile.email}
+            </a>
+            <div className="inline-flex items-center gap-3 rounded-full border border-[var(--border-soft)] bg-white px-5 py-3">
+              <FaMapMarkerAlt className="text-[var(--accent-strong)]" />
+              {profile.location}
+            </div>
           </div>
         </div>
       </div>

@@ -26,11 +26,12 @@ const openSourceContributions = [
 
 const Milestones: React.FC<MilestonesProps> = ({ milestoneRef }) => {
     return (
-        <section id="milestones" ref={milestoneRef} className="p-8 bg-blue-50 text-black">
-            <h1 className="text-4xl font-extrabold text-center mb-8">Milestones</h1>
-            <div className="container mx-auto lg:max-w-[1000px] min-h-[500px] lg:min-w-[800px] space-y-8">
+        <section id="milestones" ref={milestoneRef} className="px-6 py-16 text-black md:px-10 md:py-24">
+            <div className="mx-auto max-w-6xl">
+            <h1 className="mb-8 text-center font-serif text-4xl font-semibold text-slate-950 md:text-5xl">Milestones</h1>
+            <div className="mx-auto space-y-8 lg:max-w-[1000px]">
                 {/* DSA Problems Solved */}
-                <div className="bg-blue-100 p-6 rounded-lg shadow-lg mx-auto w-full">
+                <div className="mx-auto w-full rounded-[1.75rem] border border-white/70 bg-white/80 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
                     <h2 className="text-3xl font-semibold mb-4 flex items-center justify-center">
                         <FaCode className="mr-3" size={30} />
                         DSA Problems Solved
@@ -80,7 +81,7 @@ const Milestones: React.FC<MilestonesProps> = ({ milestoneRef }) => {
                 </div>
 
                 {/* Open Source Contributions */}
-                <div className="bg-blue-100 p-6 rounded-lg shadow-lg">
+                <div className="rounded-[1.75rem] border border-white/70 bg-white/80 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.08)]">
                     <h2 className="text-3xl font-semibold mb-4 flex items-center">
                         <FaGithub className="mr-3" size={30} />
                         Open Source Contributions
@@ -104,6 +105,7 @@ const Milestones: React.FC<MilestonesProps> = ({ milestoneRef }) => {
                         ))}
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     );

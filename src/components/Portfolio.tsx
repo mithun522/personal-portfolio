@@ -9,6 +9,7 @@ import Milestones from "./Milestones";
 import Projects from "./Projects";
 import Technologies from "./Technologies";
 import WorkExperience from "./WorkExperience";
+import { profile } from "../data/portfolio";
 
 interface PortfolioProps {
   refs: {
@@ -29,37 +30,37 @@ const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>) => {
 
 const Portfolio: React.FC<PortfolioProps> = ({ refs }) => {
   return (
-    <div className="h-screen w-screen relative">
+    <div className="relative min-h-screen w-screen overflow-x-hidden">
       {/* Fixed Social Links */}
-      <nav className="fixed bottom-10 right-4 z-50 flex flex-col items-center space-y-1 md:hidden">
+      <nav className="fixed bottom-10 right-4 z-50 flex flex-col items-center space-y-2 md:hidden">
         <a
-          href="https://linkedin.com/in/mithun-jt-full-stack-developer"
+          href={profile.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
-          className="hover:scale-110 transition-transform"
+          className="rounded-full border border-[var(--border-soft)] bg-white p-3 shadow-[0_16px_40px_rgba(15,23,42,0.08)] transition-transform hover:scale-110"
         >
-          <FaLinkedin color="#0A66C2" size={30} />
+          <FaLinkedin color="#0A66C2" size={22} />
         </a>
-        <div className="w-[2px] h-8 bg-gray-700"></div>
+        <div className="h-8 w-[2px] bg-slate-400"></div>
         <a
-          href="https://github.com/mithun522"
+          href={profile.github}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
-          className="hover:scale-110 transition-transform"
+          className="rounded-full border border-[var(--border-soft)] bg-white p-3 shadow-[0_16px_40px_rgba(15,23,42,0.08)] transition-transform hover:scale-110"
         >
-          <FaGithub color="black" size={30} />
+          <FaGithub color="black" size={22} />
         </a>
-        <div className="w-[2px] h-8 bg-gray-700"></div>
+        <div className="h-8 w-[2px] bg-slate-400"></div>
         <a
-          href="https://leetcode.com/u/Mithun_04/"
+          href={profile.leetcode}
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LeetCode"
-          className="hover:scale-110 transition-transform"
+          className="rounded-full border border-[var(--border-soft)] bg-white p-3 shadow-[0_16px_40px_rgba(15,23,42,0.08)] transition-transform hover:scale-110"
         >
-          <FaCode color="#7B3F00" size={30} />
+          <FaCode color="#7B3F00" size={22} />
         </a>
       </nav>
 

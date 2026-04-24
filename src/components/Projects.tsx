@@ -111,31 +111,27 @@ const projects = [
     ],
     githubPublicRepo: true,
     githubUrl: "https://github.com/mithun522/expense-tracker",
-  },
-  {
-    title: "Personal Portfolio",
-    description: "A personal portfolio built using React and Tailwind CSS.",
-    type: "Personal Project",
-    techStack: [
-      <img src={reactLogo} alt="react-logo" key={1} />,
-      <img src={tailwindlogo} alt="tailwind" key={2} />,
-    ],
-    images: [],
-    githubPublicRepo: true,
-    githubUrl: "https://github.com/mithun522/personal-portfolio",
-  },
+  }
 ];
 
 const Projects: React.FC = () => {
   return (
-    <section id="projects" className="p-8 bg-slate-900 text-white">
-      <h1 className="text-4xl font-extrabold text-center mb-8">
-        Projects <span className="text-yellow-300">Made</span> out of Passion
-      </h1>
-      <div className="relative container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section id="projects" className="px-6 py-16 md:px-10 md:py-24">
+      <div className="mx-auto max-w-6xl rounded-[2rem] bg-[linear-gradient(160deg,#0f172a_0%,#18233c_45%,#25385a_100%)] px-6 py-8 text-white shadow-[0_30px_80px_rgba(15,23,42,0.18)] md:px-10 md:py-10">
+        <h1 className="max-w-3xl font-serif text-4xl font-semibold text-white md:text-5xl">
+          Selected projects built from curiosity, freelance delivery, and
+          product-minded experimentation.
+        </h1>
+        <p className="mt-4 max-w-2xl text-base leading-8 text-white/70">
+          A mix of business-facing applications and personal builds that show
+          how you approach UI, full stack implementation, and practical product
+          execution.
+        </p>
+        <div className="relative mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
+        </div>
       </div>
     </section>
   );

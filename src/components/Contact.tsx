@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AiFillMessage } from "react-icons/ai";
 import { FaEnvelope, FaPaperPlane, FaPhoneAlt, FaUser } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
+import { profile } from "../data/portfolio";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@ const Contact: React.FC = () => {
     const { name, email, phone, message } = formData;
 
     try {
-      const result = await emailjs.send(
+      await emailjs.send(
         "service_yuuwzoc", // Your Service ID
         "template_8jl67g9", // Your Template ID
         {
@@ -53,21 +54,37 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="flex flex-col items-center py-10 bg-blue-50"
-    >
-      <h1 className="flex items-center text-4xl font-bold mb-5 text-center">
-        <FaUser className="mr-2" />
-        Get in <span className="text-purple-600 ml-1">Touch</span>
-      </h1>
-      <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-4xl flex flex-col md:flex-row items-center">
+    <section id="contact" className="px-6 py-16 md:px-10 md:py-24">
+      <div className="mx-auto max-w-6xl rounded-[2rem] border border-white/70 bg-white/80 p-6 shadow-[0_28px_70px_rgba(15,23,42,0.08)] backdrop-blur md:p-10">
+        <div className="mb-8">
+          <div className="inline-flex items-center gap-3 rounded-full border border-[var(--border-soft)] bg-[var(--surface-soft)] px-4 py-2 text-sm font-semibold text-slate-700">
+            <FaUser className="text-[var(--accent-strong)]" />
+            Contact
+          </div>
+          <h2 className="mt-4 font-serif text-4xl text-slate-950 md:text-5xl">
+            Let&apos;s build something useful together
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
+            Open to product-focused frontend and full stack opportunities,
+            especially where clean UX, dependable delivery, and modern web
+            engineering all matter.
+          </p>
+          <a
+            href={`mailto:${profile.email}`}
+            className="mt-5 inline-flex items-center gap-3 rounded-full border border-[var(--border-soft)] bg-white px-5 py-3 text-sm font-semibold text-slate-800"
+          >
+            <FaEnvelope className="text-[var(--accent-strong)]" />
+            {profile.email}
+          </a>
+        </div>
+
+        <div className="flex w-full flex-col items-center gap-8 md:flex-row">
         <img
           src="https://img.freepik.com/premium-vector/young-woman-working-laptop-illustration_39663-268.jpg"
           alt="Contact"
-          className="w-full md:w-1/2 rounded-lg object-cover"
+          className="w-full rounded-[1.5rem] object-cover md:w-1/2"
         />
-        <div className="flex flex-col w-full md:w-1/2 p-4">
+        <div className="flex w-full flex-col md:w-1/2">
           <form onSubmit={handleSubmit}>
             <div className="relative mb-4">
               <FaUser
@@ -81,7 +98,7 @@ const Contact: React.FC = () => {
                 placeholder="Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full pl-12 pr-4 py-3 border rounded-md border-gray-300 focus:border-purple-700 bg-gray-100 text-gray-800 placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-purple-600"
+                className="w-full rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-soft)] py-3 pl-12 pr-4 text-gray-800 outline-none transition focus:border-[var(--accent-strong)] focus:ring-2 focus:ring-[rgba(205,98,48,0.2)]"
                 required
               />
             </div>
@@ -97,7 +114,7 @@ const Contact: React.FC = () => {
                 placeholder="Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full pl-12 pr-4 py-3 border rounded-md border-gray-300 focus:border-purple-700 bg-gray-100 text-gray-800 placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-purple-600"
+                className="w-full rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-soft)] py-3 pl-12 pr-4 text-gray-800 outline-none transition focus:border-[var(--accent-strong)] focus:ring-2 focus:ring-[rgba(205,98,48,0.2)]"
                 required
               />
             </div>
@@ -113,7 +130,7 @@ const Contact: React.FC = () => {
                 placeholder="Phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full pl-12 pr-4 py-3 border rounded-md border-gray-300 focus:border-purple-700 bg-gray-100 text-gray-800 placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-purple-600"
+                className="w-full rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-soft)] py-3 pl-12 pr-4 text-gray-800 outline-none transition focus:border-[var(--accent-strong)] focus:ring-2 focus:ring-[rgba(205,98,48,0.2)]"
               />
             </div>
             <div className="relative mb-4">
@@ -127,13 +144,13 @@ const Contact: React.FC = () => {
                 placeholder="Message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full pl-12 pr-4 py-3 border rounded-md border-gray-300 focus:border-purple-700 bg-gray-100 text-gray-800 placeholder:text-gray-500 outline-none focus:ring-2 focus:ring-purple-600 h-32 resize-none"
+                className="h-32 w-full resize-none rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-soft)] py-3 pl-12 pr-4 text-gray-800 outline-none transition focus:border-[var(--accent-strong)] focus:ring-2 focus:ring-[rgba(205,98,48,0.2)]"
                 required
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-purple-700 text-white py-3 rounded-md flex justify-center items-center font-semibold hover:bg-purple-800 transition duration-300"
+              className="flex w-full items-center justify-center rounded-full bg-[var(--accent-strong)] py-3 font-semibold text-white transition duration-300 hover:bg-[var(--accent-dark)]"
               aria-label="Send Message"
               disabled={isSending}
             >
@@ -150,6 +167,7 @@ const Contact: React.FC = () => {
             )}
           </form>
         </div>
+      </div>
       </div>
     </section>
   );

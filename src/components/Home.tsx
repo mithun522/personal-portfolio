@@ -1,101 +1,180 @@
-import React, { useEffect, useState } from 'react';
-import { FaArrowCircleDown, FaCode, FaGithub, FaLinkedin } from 'react-icons/fa';
-import bgVideo from '../assets/portfolio-bg.mp4';
-import Mithun from '../assets/Mithun.jpeg';
+import React, { useEffect, useState } from "react";
+import {
+  FaArrowRight,
+  FaCode,
+  FaGithub,
+  FaLinkedin,
+  FaLocationArrow,
+} from "react-icons/fa";
+import Mithun from "../assets/Mithun.jpeg";
+import { heroHighlights, profile } from "../data/portfolio";
+
+const rotatingWords = [
+  "Full Stack Apps",
+  "Healthcare SaaS",
+  "React Experiences",
+  "Angular Interfaces",
+  "Node.js APIs",
+  "Tested Product Workflows",
+];
 
 const Typewriter: React.FC = () => {
-  const words = ["Web Dev", "React.js", "Node.js", "Angular", "React Native", "Java", "Mobile App Dev", "Scaffolding Tools"];
-  const [currentWord, setCurrentWord] = useState<string>('');
-  const [isDeleting, setIsDeleting] = useState<boolean>(false);
-  const [loopNum, setLoopNum] = useState<number>(0);
-  const [charIndex, setCharIndex] = useState<number>(0);
+  const [currentWord, setCurrentWord] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
-    const handleType = () => {
-      setCurrentWord(words[loopNum].substring(0, charIndex + (isDeleting ? -1 : 1)));
-      setCharIndex(charIndex + (isDeleting ? -1 : 1));
+    const current = rotatingWords[loopNum];
+    const nextIndex = charIndex + (isDeleting ? -1 : 1);
+    const timeout = window.setTimeout(
+      () => {
+        setCurrentWord(current.substring(0, nextIndex));
+        setCharIndex(nextIndex);
 
-      if (!isDeleting && charIndex === words[loopNum].length) {
-        setTimeout(() => setIsDeleting(true), 1000);
-      } else if (isDeleting && charIndex === 0) {
-        setIsDeleting(false);
-        setLoopNum((prevLoopNum) => (prevLoopNum + 1) % words.length);
-      }
-    };
+        if (!isDeleting && nextIndex === current.length) {
+          window.setTimeout(() => setIsDeleting(true), 900);
+        } else if (isDeleting && nextIndex === 0) {
+          setIsDeleting(false);
+          setLoopNum((prev) => (prev + 1) % rotatingWords.length);
+        }
+      },
+      isDeleting ? 70 : 120
+    );
 
-    const typingSpeed = isDeleting ? 100 : 200;
-    const timeout = setTimeout(handleType, typingSpeed);
-
-    return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, loopNum, words]);
+    return () => window.clearTimeout(timeout);
+  }, [charIndex, isDeleting, loopNum]);
 
   return (
-    <div className="whitespace-nowrap">
-      <span className="text-lg md:text-3xl font-bold text-black">I am into&nbsp;</span>
-      <span id="typewriter" className='text-lg md:text-3xl font-bold text-rose-800'>{currentWord}</span>
+    <div className="min-h-[2.5rem] text-lg font-semibold text-slate-700 md:text-2xl">
+      I build <span className="text-[var(--accent-strong)]">{currentWord}</span>
     </div>
   );
 };
 
 const Home: React.FC = () => {
-  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
-
-  useEffect(() => {
-    window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
-    return () => window.removeEventListener('resize', () => setWindowWidth(window.innerWidth));
-  }, []);
-
-  let fontSize;
-  if (windowWidth < 768) {
-    fontSize = '2rem';
-  } else if (windowWidth < 1024) {
-    fontSize = '3rem';
-  } else {
-    fontSize = '4rem';
-  }
-
   return (
-    <div className="relative flex flex-col justify-center items-center md:h-[100vh] text-gray-900">
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute w-full h-full object-cover -z-10"
-      >
-        <source src={bgVideo} type="video/webm" />
-        Your browser does not support the video tag.
-      </video>
-      <div className='flex md:flex-row flex-col-reverse justify-between items-center px-5 md:px-40 w-full'>
-        <div className="flex flex-col text-left md:w-1/2 mb-10">
-          <h1 style={{ fontSize, fontWeight: 900 }} className='text-blue-900' >Hi There.</h1>
-          <h2 style={{ fontSize, fontWeight: 900 }} className='text-blue-900' >I'm Mithun <span className='text-orange-500' >J.T.</span></h2>
-          <div className="whitespace-nowrap">
+    <section className="relative overflow-hidden px-6 pb-16 pt-28 md:px-10 md:pb-24 md:pt-36">
+      <div className="absolute left-[-8rem] top-24 h-56 w-56 rounded-full bg-[radial-gradient(circle,_rgba(244,180,120,0.35),_transparent_70%)] blur-2xl" />
+      <div className="absolute right-[-6rem] top-16 h-80 w-80 rounded-full bg-[radial-gradient(circle,_rgba(85,114,255,0.22),_transparent_70%)] blur-3xl" />
+
+      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="relative z-[1]">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-white/70 px-4 py-2 text-sm font-semibold text-slate-700 shadow-[0_16px_40px_rgba(15,23,42,0.08)] backdrop-blur">
+            <FaLocationArrow className="text-[var(--accent-strong)]" />
+            {profile.location}
+          </div>
+
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--accent-strong)]">
+            {profile.title}
+          </p>
+          <h1 className="max-w-3xl font-serif text-5xl leading-tight text-slate-950 md:text-7xl">
+            Designing and shipping polished product experiences for modern web
+            teams.
+          </h1>
+          <div className="mt-5">
             <Typewriter />
           </div>
-          <div className='mt-10 md:mt-0 md:block hidden'>
-              <div className='bg-violet-800 shadow-md drop-shadow-xl shadow-violet-600 px-4 py-2 rounded-full text-white relativefont-semibold w-[150px] md:mt-5 mt-0' >My Profiles
-                <FaArrowCircleDown className='absolute right-5 top-3' />
-              </div>
-              <div className='flex space-x-5 mt-5'>
-                <a href="https://linkedin.com/in/mithun-jt-full-stack-developer" target="_blank" rel="noopener noreferrer" className='h-12 w-12 rounded-full bg-black flex justify-center items-center hover:scale-105 duration-300 ease-in-out'>
-                  <FaLinkedin color='#07F7EC' size={30} />
-                </a>
-                <a href="https://github.com/mithun522" target="_blank" rel="noopener noreferrer" className='h-12 w-12 rounded-full bg-black flex justify-center items-center hover:scale-105 duration-300 ease-in-out'>
-                  <FaGithub color='#07F7EC' size={30} />
-                </a>
-                <a href="https://leetcode.com/u/Mithun_04/" target="_blank" rel="noopener noreferrer" className='h-12 w-12 rounded-full bg-black flex justify-center items-center hover:scale-105 duration-300 ease-in-out'>
-                  <FaCode color='#07F7EC' size={30} />
-                </a>
-              </div>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
+            {profile.intro} {profile.domainSummary}
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            {heroHighlights.map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-[var(--border-soft)] bg-white/80 px-4 py-2 text-sm font-medium text-slate-700 shadow-[0_10px_30px_rgba(15,23,42,0.06)]"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-strong)] px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(205,98,48,0.28)] transition duration-300 hover:-translate-y-0.5 hover:bg-[var(--accent-dark)]"
+            >
+              View LinkedIn
+              <FaArrowRight />
+            </a>
+            <a
+              href={`mailto:${profile.email}`}
+              className="inline-flex items-center gap-2 rounded-full border border-[var(--border-soft)] bg-white/75 px-6 py-3 text-sm font-semibold text-slate-800 transition duration-300 hover:-translate-y-0.5"
+            >
+              Let&apos;s connect
+            </a>
+          </div>
+
+          <div className="mt-10 flex items-center gap-4">
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--border-soft)] bg-white text-slate-800 shadow-[0_12px_28px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:text-[var(--accent-strong)]"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={20} />
+            </a>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--border-soft)] bg-white text-slate-800 shadow-[0_12px_28px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:text-[var(--accent-strong)]"
+              aria-label="GitHub"
+            >
+              <FaGithub size={20} />
+            </a>
+            <a
+              href={profile.leetcode}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--border-soft)] bg-white text-slate-800 shadow-[0_12px_28px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:text-[var(--accent-strong)]"
+              aria-label="LeetCode"
+            >
+              <FaCode size={20} />
+            </a>
           </div>
         </div>
-        <div className="flex justify-center items-center md:w-1/2 mt-28">
-          <img src={Mithun} alt="Mithun J.T." className="object-cover rounded-full shadow-lg md:w-[400px] md:h-[400px] w-[250px] h-[250px]" />
+
+        <div className="relative z-[1] mx-auto max-w-md">
+          <div className="absolute inset-x-8 top-10 h-[88%] rounded-[2rem] bg-[linear-gradient(180deg,rgba(205,98,48,0.14),rgba(85,114,255,0.1))] blur-2xl" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-white/70 p-4 shadow-[0_30px_80px_rgba(15,23,42,0.14)] backdrop-blur">
+            <div className="rounded-[1.5rem] bg-[linear-gradient(145deg,#f4eee3_0%,#e7eefc_100%)] p-4">
+              <img
+                src={Mithun}
+                alt="Mithun J.T."
+                className="h-[24rem] w-full rounded-[1.25rem] object-cover object-top md:h-[34rem]"
+              />
+            </div>
+
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              <div className="rounded-3xl bg-slate-950 px-4 py-4 text-white">
+                <p className="text-xs uppercase tracking-[0.25em] text-slate-300">
+                  Current Focus
+                </p>
+                <p className="mt-2 text-sm font-semibold leading-6">
+                  Healthcare product development and frontend-heavy full stack
+                  delivery
+                </p>
+              </div>
+              <div className="rounded-3xl border border-[var(--border-soft)] bg-white px-4 py-4 text-slate-800">
+                <p className="text-xs uppercase tracking-[0.25em] text-slate-400">
+                  Strength
+                </p>
+                <p className="mt-2 text-sm font-semibold leading-6">
+                  Turning business workflows into clean, usable product
+                  experiences
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
 
 export default Home;
-
